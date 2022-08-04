@@ -7,5 +7,6 @@ public class App {
     Ponto p2 = new Ponto(-2, 3);
 
     double result = p1.distance(p1, p2);
+    System.out.println(result);
   }
 }
