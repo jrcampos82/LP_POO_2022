@@ -16,10 +16,20 @@ public class Selection {
     print(vetor);
 
     for (int i = 0; i < TAM; i++) {
-      for (int j = 0; j < TAM; j++) {
-        
+      int menor = i;
+      for (int j = i; j < TAM; j++) {
+        if (vetor[j] < vetor[menor]) {
+          menor = j;
+        }
       }
+      // trocaria os elementos
+      int aux = vetor[i];
+      vetor[i] = vetor[menor];
+      vetor[menor] = aux;
     }
+
+    System.out.println("\n\nVetor ordenado:");
+    print(vetor);
   }
 
   //----------------------------------------------------------------

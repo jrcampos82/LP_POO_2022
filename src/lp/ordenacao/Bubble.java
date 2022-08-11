@@ -19,6 +19,7 @@ public class Bubble {
     boolean troca = false;
     int numComparacao = 0;
     do {
+      int x = 0;
       troca = false;
       for (int j = 0; j < vetor.length - 1; j++) {
         numComparacao++;
