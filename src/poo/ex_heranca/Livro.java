@@ -1,6 +1,7 @@
 package poo.ex_heranca;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Livro {
@@ -63,23 +64,14 @@ public class Livro {
 
     System.out.print("Digite a data de lançamento (dd/mm/yyyy): ");
     String data = in.next();
-    String dtLanc[] = data.split("/");
 
-    if (dtLanc.length != 3) {
-      System.out.println("Digite a data corretamente");
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-      return null;
-    }
+    LocalDate novaData = LocalDate.parse(data, formatter);
+    
+    System.out.println("Nova data = " + novaData.format(formatter));
 
-    int dd = Integer.parseInt(dtLanc[0]);
-    int m = Integer.parseInt(dtLanc[1]);
-    int y = Integer.parseInt(dtLanc[2]);
-
-    LocalDate d = LocalDate.of(y, m, dd);
-
-    novoLivro.setDtLancamente(d);
-
-    //in.close();
+    novoLivro.setDtLancamente(novaData);
     return novoLivro;
   }
 }
