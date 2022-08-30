@@ -9,7 +9,7 @@ public class SistemaBiblioteca {
   private static final String[] opcoes = {
     "| ----------- +++ Sistema biblioteca +++ ----------- |",
     "|                 Escolha um opção:                  |",
-    "| -------------------------------------------------- | ",
+    "| -------------------------------------------------- |",
     "| 1 - Cadastrar Livro                                |",
     "| 2 - Cadastrar Funcionario                          |",
     "| 3 - Cadastrar Estudante                            |",
