@@ -1,6 +1,6 @@
 package poo.classe;
 
-public class Residencia extends Construcao {
+public class Residencia extends Construcao implements Contrato {
   // atributos
   private int num;
   private String nome; // casa verde
@@ -58,6 +58,18 @@ public class Residencia extends Construcao {
 
   @Override
   public String toString() {
-    return "Novo método toString";
+    return "Polimorfismo de Residencia";
+  }
+
+  @Override
+  public double descontoVista() {
+    return this.valor * 0.1;
+  }
+
+  @Override
+  public double area(Construcao obj) {
+    // TODO Auto-generated method stub
+
+    return obj.getFrete() * obj.getFundo();
   }
 }
