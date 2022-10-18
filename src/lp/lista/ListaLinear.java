@@ -5,14 +5,15 @@ public class ListaLinear {
   //---------------------------------------------------------------
   public static class Lista {
     public No inicio; // quem é o primeiro elemento da lista
-    public int tam; // tamanho da lista
+    public int tam = 0; // tamanho da lista
+    public No fim;
   }
 
   //---------------------------------------------------------------
   // inner class
   public static class No {
     public int info;
-    public No prox;
+    public No prox; // armazenando o endereço do prox elemento
   }
 
   //---------------------------------------------------------------
@@ -40,10 +41,23 @@ public class ListaLinear {
   public static Lista addInicio(Lista l, int val) {
     No n1 = new No();
     n1.info = val;
+
+    if (isEmpty(l)) {
+      n1.prox = l.inicio;
+      l.inicio = n1;
+      l.fim = n1;
+      return l;
+    }
+
     n1.prox = l.inicio;
     l.inicio = n1;
     l.tam++;
     return l;
+  }
+
+  //---------------------------------------------------------------
+  public static boolean isEmpty(Lista l) {
+    return l.tam == 0 ? true : false;
   }
 
   //---------------------------------------------------------------
@@ -69,13 +83,26 @@ public class ListaLinear {
       l.tam++;
       return l;
     }
-    // adiciona no fim 
+    // adiciona no fim
     No aux = l.inicio;
     while (aux.prox != null) {
       aux = aux.prox;
     }
 
     aux.prox = novo;
+    return l;
+  }
+
+  public static Lista addFimV2(Lista l, int val) {
+    if (isEmpty(l)) {
+      l = addInicio(l, val); // leticia
+      return l;
+    }
+
+    No novo = new No();
+    novo.info = val;
+    l.fim.prox = novo;
+    l.fim = novo;
     return l;
   }
 }

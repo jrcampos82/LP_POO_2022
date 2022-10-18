@@ -1,7 +1,9 @@
 package poo.collection;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
 import poo.ex_heranca.Livro;
 
 public class MinhaColecao {
@@ -26,12 +28,16 @@ public class MinhaColecao {
     }
 
     // opcao mais avancada p imprimir a lista
-    for (Livro l : livros) {
-      System.out.println(l);
+    for (Object l : livros) {
+      System.out.println((Livro)l);
+    }
+
+    for(Iterator i = livros.iterator(); i.hasNext();){
+      String l = (String) i.next();
     }
 
     livros.remove(0);
-    
+
 
   }
 }

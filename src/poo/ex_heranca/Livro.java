@@ -68,7 +68,7 @@ public class Livro {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     LocalDate novaData = LocalDate.parse(data, formatter);
-    
+
     System.out.println("Nova data = " + novaData.format(formatter));
 
     novoLivro.setDtLancamente(novaData);
