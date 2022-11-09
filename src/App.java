@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+
 import poo.classe.Comercial;
 import poo.classe.Residencia;
 
