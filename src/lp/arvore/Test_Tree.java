@@ -16,6 +16,11 @@ public class Test_Tree {
     testTree.inserir(6, testTree.root);
     testTree.inserir(8, testTree.root);
     
+
+
+    if(!testTree.procurar(testTree.root, 7, false))
+      System.out.println("Elemento não encontrado");
+
     System.out.println(testTree);
 
 

@@ -7,7 +7,7 @@ public class Tree {
   public void inserir(int info, Node node){
     if(node == null){
       root = new Node(info);
-      System.out.println("Criando a árvore...!\nroot = " + root.info);
+      // System.out.println("Criando a árvore...!\nroot = " + root.info);
       return;
     } 
     if(node.info > info){
@@ -37,11 +37,44 @@ public class Tree {
     return n != null;
   }
 
-  public void procurar(){
-
+  public boolean procurar(Node node, int valor, boolean found){
+    boolean retorno = found;
     // procurar pelo elemento na arvore
     // qdo achar, imprimir se tem filhos e quais são seus filhos
+    if(node == null){
+      System.out.println("Árvore Vazia!");      
+      return false;
+    }
+
+    if(valor == node.info){
+      System.out.println("Elemento encontrado!");
+      int qto = 0, fEsq = 0, fDir = 0;
+      if(node.esq != null){
+        qto++;
+        fEsq = node.esq.info;      }
+      if(node.dir != null){
+        qto++;
+        fDir = node.dir.info;
+      }
+
+      System.out.println("O elemento " +
+                        node.info + " tem " + 
+                        qto + " filhos\n");
+
+      if(fEsq != 0) System.out.println("Filho esq: " + fEsq);
+      if(fDir != 0) System.out.println("Filho dir: " + fDir);
+
+      return true;
+
+    } 
     
+    if(isNode(node.esq))
+      retorno = procurar(node.esq, valor, retorno);
+    
+    if(isNode(node.dir))
+      retorno = procurar(node.dir, valor, retorno);
+
+  return retorno;
 
   }
 
